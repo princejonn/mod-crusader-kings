@@ -1,0 +1,5 @@
+sleep_with_spouse = {
+    opinion = 30
+    years = 3
+    decaying = yes
+}

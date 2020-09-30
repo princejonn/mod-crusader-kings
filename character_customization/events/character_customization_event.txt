@@ -1,0 +1,27 @@
+namespace = character_customization_event
+
+character_customization_event.0001 = {
+    type = character_event
+    theme = default
+
+    title = character_customization_event.0001.t
+    desc = character_customization_event.0001.d
+
+    left_portrait = {
+        character = scope:recipient
+        animation = personality_rational
+    }
+
+    widgets = {
+        widget = {
+            gui = "event_window_widget_name_child"
+            container = "dynamic_birth_name"
+            controller = name_character
+            setup_scope = { scope:recipient = { save_scope_as = name_character_target } }
+        }
+    }
+
+    option = {
+        name = character_customization_event.0001.o
+    }
+}

@@ -1,0 +1,19 @@
+interaction_category_demigod = {
+    index = 8
+    desc = interaction_category_demigod_desc
+}
+
+interaction_category_customization = {
+    index = 9
+    desc = interaction_category_customization_desc
+}
+
+interaction_category_traits = {
+    index = 10
+    desc = interaction_category_traits_desc
+}
+
+interaction_category_titles = {
+    index = 11
+    desc = interaction_category_titles_desc
+}

@@ -1,0 +1,175 @@
+get_title_interaction = {
+    category = interaction_category_titles
+    desc = get_title_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    special_interaction = revoke_title_interaction
+    interface = revoke_title
+    target_type = title
+    target_filter = recipient_domain_titles
+    popup_on_receive = yes
+    pause_on_receive = yes
+
+    interface_priority = 60
+
+    is_shown = {
+        scope:recipient = {
+            is_landed = yes
+            target_is_liege_or_above = scope:actor
+        }
+
+        trigger_if = {
+            limit = {
+                scope:actor = {
+                    is_ai = yes
+                }
+                scope:recipient.primary_title.tier >= tier_county
+            }
+        }
+    }
+
+    is_valid_showing_failures_only = {
+        NOT = { scope:actor = { is_at_war_with = scope:recipient } }
+        scope:actor = {
+            target_is_vassal_or_below = scope:recipient
+        }
+        scope:recipient = {
+            is_diplomatically_available = yes
+        }
+    }
+
+    is_highlighted = {
+        OR = {
+            scope:actor = {
+                has_revoke_title_reason = scope:recipient
+            }
+            scope:recipient = {
+                any_held_title = {
+                    scope:actor = {
+                        has_claim_on = prev
+                    }
+                }
+            }
+        }
+    }
+
+    can_be_picked = {
+        AND =  {
+            NOT = { scope:recipient = scope:actor }
+            scope:recipient = {
+                target_is_liege_or_above = scope:actor
+            }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            add_unpressed_claim = scope:landed_title
+        }
+    }
+
+    ai_accept = {
+        always = yes
+    }
+
+    ai_will_do = 0
+}
+
+get_vassal_interaction = {
+    category = interaction_category_titles
+    desc = get_vassal_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    special_interaction = retract_vassal_interaction
+    interface = transfer_vassal
+    popup_on_receive = yes
+    pause_on_receive = yes
+
+    prompt = RETRACT_VASSAL_SELECT_VASSAL_TO_RETRACT
+    notification_text = RETRACT_VASSAL_PROPOSAL
+
+    populate_recipient_list = {
+        scope:recipient = {
+            every_vassal = {
+                add_to_list = characters
+            }
+        }
+    }
+
+    is_shown = {
+        NOT = { scope:recipient = scope:actor }
+        scope:recipient = {
+            highest_held_title_tier > tier_barony
+            target_is_liege_or_above = scope:actor
+        }
+    }
+
+    is_valid_showing_failures_only = {
+        NOT = { scope:actor = { is_at_war_with = scope:recipient } }
+        scope:actor = {
+            target_is_vassal_or_below = scope:recipient
+        }
+        scope:recipient = {
+            is_diplomatically_available = yes
+        }
+    }
+
+    can_be_picked = {
+        highest_held_title_tier > tier_barony
+    }
+
+    is_highlighted = {
+        OR = {
+            scope:actor = {
+                has_revoke_title_reason = scope:recipient
+            }
+            scope:recipient = {
+                 any_held_title = {
+                    scope:actor = {
+                        has_claim_on = prev
+                    }
+                }
+            }
+        }
+    }
+
+    can_be_picked = {
+        AND =  {
+            NOT = { scope:recipient = scope:actor }
+            scope:recipient = {
+                target_is_liege_or_above = scope:actor
+            }
+        }
+    }
+
+    on_accept = {
+        create_title_and_vassal_change = change
+
+        scope:secondary_recipient = {
+            change_liege = {
+                liege = scope:actor
+                change = scope:change
+            }
+            add_character_flag = {
+                flag = ai_should_not_transfer
+                years = 10
+            }
+        }
+
+        resolve_title_and_vassal_change = scope:change
+    }
+
+    ai_accept = {
+        always = yes
+    }
+
+    ai_will_do = 0
+}

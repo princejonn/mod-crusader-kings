@@ -1,0 +1,167 @@
+give_eternal_youth_interaction = {
+    category = interaction_category_demigod
+    desc = eternal_youth_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = {
+            has_trait = demigod
+            NOT = { has_character_flag = eternal_youth }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            set_immortal_age = 20
+            add_character_flag = {
+                flag = eternal_youth
+            }
+        }
+    }
+
+    ai_will_do = 0
+}
+
+give_astute_demigod_modifier_interaction = {
+    category = interaction_category_demigod
+    desc = give_astute_demigod_modifier_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = scope:actor
+        scope:recipient = {
+            has_trait = demigod
+            NOT = { has_character_modifier = astute_demigod_modifier }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            add_character_modifier = {
+                modifier = astute_demigod_modifier
+            }
+        }
+    }
+
+    ai_will_do = 0
+}
+
+give_charismatic_demigod_modifier_interaction = {
+    category = interaction_category_demigod
+    desc = give_charismatic_demigod_modifier_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = scope:actor
+        scope:recipient = {
+            has_trait = demigod
+            NOT = { has_character_modifier = charismatic_demigod_modifier }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            add_character_modifier = {
+                modifier = charismatic_demigod_modifier
+            }
+        }
+    }
+
+    ai_will_do = 0
+}
+
+give_elusive_demigod_modifier_interaction = {
+    category = interaction_category_demigod
+    desc = give_elusive_demigod_modifier_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = scope:actor
+        scope:recipient = {
+            has_trait = demigod
+            NOT = { has_character_modifier = elusive_demigod_modifier }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            add_character_modifier = {
+                modifier = elusive_demigod_modifier
+            }
+        }
+    }
+
+    ai_will_do = 0
+}
+
+give_insightful_demigod_modifier_interaction = {
+    category = interaction_category_demigod
+    desc = give_insightful_demigod_modifier_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = scope:actor
+        scope:recipient = {
+            has_trait = demigod
+            NOT = { has_character_modifier = insightful_demigod_modifier }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            add_character_modifier = {
+                modifier = insightful_demigod_modifier
+            }
+        }
+    }
+
+    ai_will_do = 0
+}
+
+give_mighty_demigod_modifier_interaction = {
+    category = interaction_category_demigod
+    desc = give_mighty_demigod_modifier_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = scope:actor
+        scope:recipient = {
+            has_trait = demigod
+            NOT = { has_character_modifier = mighty_demigod_modifier }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            add_character_modifier = {
+                modifier = mighty_demigod_modifier
+            }
+        }
+    }
+
+    ai_will_do = 0
+}

@@ -1,0 +1,1 @@
+Currently this mod only changes the Tribal Laws so that vassals cannot attack each other at Rank 3, and cannot go to war at all at Rank 4, making those laws more similar to Crown Laws.

@@ -1,0 +1,41 @@
+Sometimes it feels nice to just play the game on your own terms. The debug tool will get you far. but, sometimes, it will just not be far enough. With this tool, you will be able to modify your character (and others).
+
+[b]Customization actions[/b]
+
+[list]
+    [*] Change name
+    [*] Alleviate stress (by -100)
+    [*] Ensure Smooth Birth (by setting the correct flag)
+    [*] Remove negative traits and modifiers
+    [*] Abdicate from Rule (and distribute your titles to your heirs)
+    [*] Improve education level (to rank 4)
+    [*] Ask physician for contraceptives (reducing fertility by 95%)
+[/list]
+
+[b]Diplomacy actions[/b]
+
+[list]
+    [*] Sleep with spouse (producing a child)
+[/list]
+
+[b]Trait actions[/b]
+
+[list]
+    [*] Become a demigod (immortal)
+    [*] Become a child of the elder blood (powerful congenial trait))
+    [*] Become beautiful (one of the positive congenial traits)
+    [*] Become intelligent (one of the positive congenial traits)
+    [*] Become strong (one of the positive congenial traits)
+    [*] Become a blademaster
+    [*] Become a hunter
+    [*] Give court physician the "Renowned Physician" trait
+[/list]
+
+[b]Demigod actions[/b]
+
+[list]
+    [*] Give eternal youth (setting immortal age to 20)
+    [*] Bestow gift (increase martial/intellect/etc.)
+[/list]
+
+This mod is incompatible with any other mod that modifies the character interaction menu (right click menu)

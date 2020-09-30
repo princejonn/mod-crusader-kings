@@ -1,0 +1,169 @@
+﻿l_english:
+
+  # Character Interaction Categories
+
+  interaction_category_demigod:0 "Demigod"
+  interaction_category_demigod_desc:0 "demigod actions"
+
+  interaction_category_customization:0 "Customization"
+  interaction_category_customization_desc:0 "customization actions"
+
+  interaction_category_traits:0 "Traits"
+  interaction_category_traits_desc:0 "trait actions"
+
+  interaction_category_titles:0 "Titles"
+  interaction_category_titles_desc:0 "title actions"
+
+
+  # Character Interactions - Customization
+
+  change_name_interaction:0 "Change name"
+  change_name_interaction_desc:0 "Prompts a dialog to change your name"
+
+  remove_stress_interaction:0 "Alleviate stress"
+  remove_stress_interaction_desc:0 "Removes 100 [stress|E]"
+
+  ensure_smooth_birth_interaction:0 "Ensure Smooth Birth"
+  ensure_smooth_birth_interaction_desc:0 "Ensures that the pregnancy is successful"
+
+  remove_negative_modifiers_interaction:0 "Remove negative traits and modifiers"
+  remove_negative_modifiers_interaction_desc:0 "Removes all negative [trait|E] and [modifier|E]"
+
+  abdicate_interaction:0 "Abdicate from Rule"
+  abdicate_interaction_desc:0 "Deposes this ruler and gives titles to the designated heirs."
+
+  make_bisexual_interaction:0 "Make Bisexual"
+  make_bisexual_interaction_desc:0 "Makes the character bisexual. Spread the love!"
+
+  improve_education_interaction:0 "Improve education level"
+  improve_education_interaction_desc:0 "Will remove your current [education|E] [trait|E] and set it to rank 4"
+
+  give_contraceptive_modifier_interaction:0 "Ask physician for contraceptives"
+  give_contraceptive_modifier_interaction_desc:0 "Gives the [modifier|E] [GetModifier('contraceptive_modifier').GetNameWithTooltip|L]"
+
+  remove_contraceptive_modifier_interaction:0 "Stop using contraceptives"
+  remove_contraceptive_modifier_interaction_desc:0 "Removes the [modifier|E] [GetModifier('contraceptive_modifier').GetNameWithTooltip|L]"
+
+
+  # Character Interactions - Demigod
+
+  give_eternal_youth_interaction:0 "Give eternal youth"
+  give_eternal_youth_interaction_desc:0 "Sets the immortal age to 20"
+
+  give_astute_demigod_modifier_interaction:0 "Bestow gift of astuteness"
+  give_astute_demigod_modifier_interaction_desc:0 "Gives the modifier [GetModifier('astute_demigod_modifier').GetNameWithTooltip|L]"
+
+  give_charismatic_demigod_modifier_interaction:0 "Bestow gift of charisma"
+  give_charismatic_demigod_modifier_interaction_desc:0 "Gives the modifier [GetModifier('charismatic_demigod_modifier').GetNameWithTooltip|L]"
+
+  give_elusive_demigod_modifier_interaction:0 "Bestow gift of elusiveness"
+  give_elusive_demigod_modifier_interaction_desc:0 "Gives the modifier [GetModifier('elusive_demigod_modifier').GetNameWithTooltip|L]"
+
+  give_insightful_demigod_modifier_interaction:0 "Bestow gift of insightfulness"
+  give_insightful_demigod_modifier_interaction_desc:0 "Gives the modifier [GetModifier('insightful_demigod_modifier').GetNameWithTooltip|L]"
+
+  give_mighty_demigod_modifier_interaction:0 "Bestow gift of might"
+  give_mighty_demigod_modifier_interaction_desc:0 "Gives the modifier [GetModifier('mighty_demigod_modifier').GetNameWithTooltip|L]"
+
+
+  # Character Interactions - Diplomacy
+
+  sleep_with_female_spouse_interaction:0 "Sleep with spouse"
+  sleep_with_female_spouse_interaction_desc:0 "Will hopefully provide you with a new child!"
+
+  sleep_with_male_spouse_interaction:0 "Sleep with spouse"
+  sleep_with_male_spouse_interaction_desc:0 "Will hopefully provide you with a new child!"
+
+
+  # Character Interactions - Traits
+
+  give_demigod_trait_interaction:0 "Become a demigod"
+  give_demigod_trait_interaction_desc:0 "Gives the [trait|E] [GetTrait('demigod').GetName( ROOT.Char )]"
+
+  remove_demigod_trait_interaction:0 "Become mortal"
+  remove_demigod_trait_interaction_desc:0 "Removes the [trait|E] [GetTrait('demigod').GetName( ROOT.Char )]"
+
+  give_elder_blood_trait_interaction:0 "Become a child of the elder blood"
+  give_elder_blood_trait_interaction_desc:0 "Gives you the [trait|E] [GetTrait('elder_blood').GetName( ROOT.Char )]"
+
+  give_beauty_trait_interaction:0 "Become beautiful"
+  give_beauty_trait_interaction_desc:0 "Gives you a beauty [trait|E]"
+
+  give_intellect_trait_interaction:0 "Become intelligent"
+  give_intellect_trait_interaction_desc:0 "Gives you an intellect [trait|E]"
+
+  give_physique_trait_interaction:0 "Become strong"
+  give_physique_trait_interaction_desc:0 "Gives you a physique [trait|E]"
+
+  give_fecund_trait_interaction:0 "Become fecund"
+  give_fecund_trait_interaction_desc:0 "Gives you a fertility [trait|E]"
+
+  give_blademaster_trait_interaction:0 "Become a blademaster"
+  give_blademaster_trait_interaction_desc:0 "Gives you a blademaster [trait|E]"
+
+  give_hunter_trait_interaction:0 "Become a hunter"
+  give_hunter_trait_interaction_desc:0 "Gives you a hunter [trait|E]"
+
+  give_physician_trait_interaction:0 "Become a $trait_physician_3$"
+  give_physician_trait_interaction_desc:0 "Gives your court physician the [trait|E] [GetTrait('physician_3').GetName( ROOT.Char )]"
+
+  # Character Interactions - Titles
+
+  get_title_interaction:0 "Get Title"
+  get_title_interaction_desc:0 "This [vassal|E] will give you one of their [title|E]s"
+
+  recipient_secondary_get_title_interaction:0 "[title|E]"
+
+  get_vassal_interaction:0 "Get Vassal"
+  get_vassal_interaction_desc:0 "This [vassal|E] will give you one of their [vassal|E]s"
+
+  recipient_secondary_get_vassal_interaction:0 "[vassal|E]"
+
+
+  # Modifiers - Customization
+
+  contraceptive_modifier:0 "Using contraceptive"
+  contraceptive_modifier_desc:0 "This character has elected to use contraceptives."
+
+
+  # Modifiers - Demigod
+
+  astute_demigod_modifier:0 "Astute Demigod"
+  astute_demigod_modifier_desc:0 "The Astute Demigod possesses an uncanny insight into all subjects of higher learning."
+
+  insightful_demigod_modifier:0 "Insightful Demigod"
+  insightful_demigod_modifier_desc:0 "The Insightful Demigod is followed by success after success in the art of stewardship, displaying an indisputable mastery of the art."
+
+  charismatic_demigod_modifier:0 "Charismatic Demigod"
+  charismatic_demigod_modifier_desc:0 "As familiar with the nuances of diplomacy as the back of their hand, the Charismatic Demigod is a master of the art."
+
+  elusive_demigod_modifier:0 "Elusive Demigod"
+  elusive_demigod_modifier_desc:0 "The Elusive Demigod has excelled as a master of intrigue, and the shroud of secrecy around them is second to none."
+
+  mighty_demigod_modifier:0 "Mighy Demigod"
+  mighty_demigod_modifier_desc:0 "The battlefield is the domain of the Mighty Demigod, and no martial matter is beyond their knowledge."
+
+
+  # Opinion Modifiers - Diplomacy
+
+  sleep_with_spouse:0 "Slept with spouse"
+
+
+  # Traits
+
+  demigod:0 "Demigod"
+  trait_demigod:0 "Demigod"
+  trait_demigod_desc:0 "This character is a child born from the union of a god and a human."
+  trait_demigod_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a demigod."
+
+  elder_blood:0 "Elder Blood"
+  trait_elder_blood:0 "Elder Blood"
+  trait_elder_blood_desc:0 "This character has the elder blood coursing through their veins."
+  trait_elder_blood_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a child of the elder blood."
+
+
+  # Events
+
+  character_customization_event.0001.t:0 "Changing my name"
+  character_customization_event.0001.d:0 "My current name does not fit a person with a stature such as mine, but what name shall I take?"
+  character_customization_event.0001.o:0 "Change name"

@@ -1,0 +1,427 @@
+﻿change_name_interaction = {
+    category = interaction_category_customization
+    desc = change_name_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = scope:actor
+        scope:recipient = {
+            is_alive = yes
+        }
+    }
+
+    on_send = {
+        scope:recipient = {
+            trigger_event = character_customization_event.0001
+        }
+    }
+
+    ai_will_do = 0
+}
+
+remove_stress_interaction = {
+    category = interaction_category_customization
+    desc = remove_stress_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        OR = {
+            scope:recipient = scope:actor
+            scope:recipient = {
+                OR = {
+                    is_spouse_of = scope:actor
+                    is_concubine_of = scope:actor
+                    is_close_or_extended_family_of = scope:actor
+                    target_is_liege_or_above = scope:actor
+                }
+            }
+        }
+        scope:recipient = {
+            is_alive = yes
+            stress >= 10
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            add_stress = -100
+        }
+    }
+
+    ai_will_do = 0
+}
+
+ensure_smooth_birth_interaction = {
+    category = interaction_category_customization
+    desc = ensure_smooth_birth_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = {
+            is_alive = yes
+            has_trait = pregnant
+            NOT = { has_character_flag = birth_will_go_smoothly }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            remove_character_flag = birth_mother_will_die
+            remove_character_flag = birth_mother_will_become_ill
+            remove_character_flag = birth_child_will_become_sickly
+
+            add_character_flag = birth_will_go_smoothly
+        }
+    }
+
+    ai_will_do = 0
+}
+
+remove_negative_modifiers_interaction = {
+    category = interaction_category_customization
+    desc = remove_negative_modifiers_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        OR = {
+            scope:recipient = scope:actor
+            scope:recipient = {
+                OR = {
+                    is_spouse_of = scope:actor
+                    is_concubine_of = scope:actor
+                    is_close_or_extended_family_of = scope:actor
+                    target_is_liege_or_above = scope:actor
+                }
+            }
+        }
+        scope:recipient = {
+            is_alive = yes
+            OR = {
+                has_character_modifier = obese_modifier
+
+                has_trait = beauty_bad_1
+                has_trait = beauty_bad_2
+                has_trait = beauty_bad_3
+                has_trait = blind
+                has_trait = bubonic_plague
+                has_trait = cancer
+                has_trait = consumption
+                has_trait = depressed_1
+                has_trait = depressed_genetic
+                has_trait = disfigured
+                has_trait = drunkard
+                has_trait = early_great_pox
+                has_trait = eunuch
+                has_trait = gout_ridden
+                has_trait = great_pox
+                has_trait = ill
+                has_trait = incapable
+                has_trait = infirm
+                has_trait = intellect_bad_1
+                has_trait = intellect_bad_2
+                has_trait = intellect_bad_3
+                has_trait = leper
+                has_trait = lisping
+                has_trait = lovers_pox
+                has_trait = lunatic_1
+                has_trait = lunatic_genetic
+                has_trait = maimed
+                has_trait = one_eyed
+                has_trait = one_legged
+                has_trait = physique_bad_1
+                has_trait = physique_bad_2
+                has_trait = physique_bad_3
+                has_trait = pneumonic
+                has_trait = possessed_1
+                has_trait = possessed_genetic
+                has_trait = scaly
+                has_trait = scarred
+                has_trait = sickly
+                has_trait = smallpox
+                has_trait = stuttering
+                has_trait = typhus
+                has_trait = wounded_1
+                has_trait = wounded_2
+                has_trait = wounded_3
+            }
+        }
+    }
+
+    on_send = {
+        scope:recipient = {
+            remove_character_modifier = obese_modifier
+
+            remove_trait = beauty_bad_1
+            remove_trait = beauty_bad_2
+            remove_trait = beauty_bad_3
+            remove_trait = blind
+            remove_trait = bubonic_plague
+            remove_trait = cancer
+            remove_trait = consumption
+            remove_trait = depressed_1
+            remove_trait = depressed_genetic
+            remove_trait = disfigured
+            remove_trait = drunkard
+            remove_trait = early_great_pox
+            remove_trait = eunuch
+            remove_trait = gout_ridden
+            remove_trait = great_pox
+            remove_trait = ill
+            remove_trait = incapable
+            remove_trait = infirm
+            remove_trait = intellect_bad_1
+            remove_trait = intellect_bad_2
+            remove_trait = intellect_bad_3
+            remove_trait = leper
+            remove_trait = lisping
+            remove_trait = lovers_pox
+            remove_trait = lunatic_1
+            remove_trait = lunatic_genetic
+            remove_trait = maimed
+            remove_trait = one_eyed
+            remove_trait = one_legged
+            remove_trait = physique_bad_1
+            remove_trait = physique_bad_2
+            remove_trait = physique_bad_3
+            remove_trait = pneumonic
+            remove_trait = possessed_1
+            remove_trait = possessed_genetic
+            remove_trait = scaly
+            remove_trait = scarred
+            remove_trait = sickly
+            remove_trait = smallpox
+            remove_trait = stuttering
+            remove_trait = typhus
+            remove_trait = wounded_1
+            remove_trait = wounded_2
+            remove_trait = wounded_3
+        }
+    }
+
+    ai_will_do = 0
+}
+
+abdicate_interaction = {
+    category = interaction_category_customization
+    desc = abdicate_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = scope:actor
+        scope:recipient = {
+            is_alive = yes
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            depose = yes
+        }
+    }
+
+    ai_will_do = 0
+}
+
+make_bisexual_interaction = {
+    category = interaction_category_customization
+    desc = make_bisexual_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = scope:actor
+        scope:recipient = {
+            NOT = { has_sexuality = bisexual }
+            is_alive = yes
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            set_sexuality = bisexual
+        }
+    }
+
+    ai_will_do = 0
+}
+
+improve_education_interaction = {
+    category = interaction_category_customization
+    desc = improve_education_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        OR = {
+            scope:recipient = scope:actor
+            scope:recipient = {
+                OR = {
+                    is_spouse_of = scope:actor
+                    is_concubine_of = scope:actor
+                    is_close_or_extended_family_of = scope:actor
+                    target_is_liege_or_above = scope:actor
+                }
+            }
+        }
+        scope:recipient = {
+            OR = {
+                has_trait = education_diplomacy_1
+                has_trait = education_diplomacy_2
+                has_trait = education_diplomacy_3
+                has_trait = education_martial_1
+                has_trait = education_martial_2
+                has_trait = education_martial_3
+                has_trait = education_stewardship_1
+                has_trait = education_stewardship_2
+                has_trait = education_stewardship_3
+                has_trait = education_intrigue_1
+                has_trait = education_intrigue_2
+                has_trait = education_intrigue_3
+                has_trait = education_learning_1
+                has_trait = education_learning_2
+                has_trait = education_learning_3
+            }
+        }
+    }
+
+    on_accept = {
+        if = {
+            limit = { scope:recipient = { has_trait = education_diplomacy } }
+
+            scope:recipient = {
+                remove_trait = education_diplomacy_1
+                remove_trait = education_diplomacy_2
+                remove_trait = education_diplomacy_3
+                remove_trait = education_diplomacy_4
+                add_trait = education_diplomacy_4
+            }
+        }
+
+        else_if = {
+            limit = { scope:recipient = { has_trait = education_martial } }
+
+            scope:recipient = {
+                remove_trait = education_martial_1
+                remove_trait = education_martial_2
+                remove_trait = education_martial_3
+                remove_trait = education_martial_4
+                add_trait = education_martial_4
+            }
+        }
+
+        else_if = {
+            limit = { scope:recipient = { has_trait = education_stewardship } }
+
+            scope:recipient = {
+                remove_trait = education_stewardship_1
+                remove_trait = education_stewardship_2
+                remove_trait = education_stewardship_3
+                remove_trait = education_stewardship_4
+                add_trait = education_stewardship_4
+            }
+        }
+
+        else_if = {
+            limit = { scope:recipient = { has_trait = education_intrigue } }
+
+            scope:recipient = {
+                remove_trait = education_intrigue_1
+                remove_trait = education_intrigue_2
+                remove_trait = education_intrigue_3
+                remove_trait = education_intrigue_4
+                add_trait = education_intrigue_4
+            }
+        }
+
+        else_if = {
+            limit = { scope:recipient = { has_trait = education_learning } }
+
+            scope:recipient = {
+                remove_trait = education_learning_1
+                remove_trait = education_learning_2
+                remove_trait = education_learning_3
+                remove_trait = education_learning_4
+                add_trait = education_learning_4
+            }
+        }
+    }
+
+    ai_will_do = 0
+}
+
+give_contraceptive_modifier_interaction = {
+    category = interaction_category_customization
+    desc = give_contraceptive_modifier_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = scope:actor
+        scope:recipient = {
+            NOT = { has_character_modifier = contraceptive_modifier }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            add_character_modifier = {
+                modifier = contraceptive_modifier
+            }
+        }
+    }
+
+    ai_will_do = 0
+}
+
+remove_contraceptive_modifier_interaction = {
+    category = interaction_category_customization
+    desc = remove_contraceptive_modifier_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = {
+            has_character_modifier = contraceptive_modifier
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            remove_character_modifier = contraceptive_modifier
+        }
+    }
+
+    ai_will_do = 0
+}

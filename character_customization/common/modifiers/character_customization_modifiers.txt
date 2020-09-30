@@ -1,0 +1,5 @@
+contraceptive_modifier = {
+     icon = fertility_negative
+
+     fertility = -0.95
+}
