@@ -76,7 +76,9 @@ get_title_interaction = {
         always = yes
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 get_vassal_interaction = {
@@ -175,5 +177,7 @@ get_vassal_interaction = {
         always = yes
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }

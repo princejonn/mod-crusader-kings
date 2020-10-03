@@ -74,6 +74,8 @@
   sleep_with_male_spouse_interaction:0 "Sleep with spouse"
   sleep_with_male_spouse_interaction_desc:0 "Will hopefully provide you with a new child!"
 
+  protect_dynasty_vassal_in_war_interaction:0 "Protect your dynasty"
+  protect_dynasty_vassal_in_war_interaction_desc:0 "Step in to protect your [vassal|E] [dynasty|E] member in their current war."
 
   # Character Interactions - Traits
 

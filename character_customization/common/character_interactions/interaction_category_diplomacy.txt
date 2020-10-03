@@ -39,7 +39,9 @@ sleep_with_female_spouse_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 sleep_with_male_spouse_interaction = {
@@ -85,5 +87,270 @@ sleep_with_male_spouse_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
+}
+
+protect_dynasty_vassal_in_war_interaction = {
+	category = interaction_category_diplomacy
+	desc = protect_dynasty_vassal_in_war_interaction_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+	special_interaction = interfere_in_war_interaction
+	interface = interfere_in_war
+	notification_text = join_war_interaction_notification
+	greeting = positive
+
+    popup_on_receive = yes
+    pause_on_receive = yes
+
+	is_shown = {
+		scope:recipient.dynasty = scope:actor.dynasty
+		scope:recipient = {
+            is_landed = yes
+            target_is_liege_or_above = scope:actor
+			is_at_war = yes
+			NOR = {
+				this = scope:actor
+				is_at_war_with = scope:actor
+			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+
+		# recipient is not in (any) war against your liege(s)
+		trigger_if = {
+			limit = { exists = scope:actor.liege }
+			custom_description = {
+				text = join_war_interaction_recipient_warring_with_my_liege
+				subject = scope:recipient
+				scope:actor = {
+					NOT = {
+						any_liege_or_above = {
+							is_at_war_with = scope:recipient
+						}
+					}
+				}
+			}
+		}
+
+		# recipient is ally or defending against a holy war
+		trigger_else_if = {
+			limit = {
+				scope:actor = {
+					NOT = { target_is_liege_or_above = scope:recipient }
+				}
+			}
+			trigger_if = {
+				limit = {
+					scope:recipient = {
+						any_character_war = {
+							OR = {
+								#Must be either the same faith as the character being holy warred...
+								scope:recipient.faith = scope:actor.faith
+								#... Or, same religion, *and* you couldn't holy war them yourself.
+								AND = {
+									scope:recipient.faith.religion = scope:actor.faith.religion
+									scope:actor.faith = {
+										faith_hostility_level = {
+											target = scope:recipient.faith
+											value < religious_cb_enabled_hostility_level
+										}
+									}
+								}
+							}
+							any_war_defender = { this = scope:recipient }
+						}
+					}
+				}
+				# Deliberately blank; we've passed the trigger and making a desc out of this doesn't make sense
+			}
+		}
+
+		# recipient is liege
+		trigger_else = {
+			custom_description = {
+				text = join_war_interaction_recipient_not_liege
+				subject = scope:recipient
+				scope:actor = {
+					target_is_liege_or_above = scope:recipient
+				}
+			}
+		}
+	}
+
+	can_be_picked = {
+		exists = scope:target
+		scope:target = {
+			is_war_leader = scope:recipient
+		}
+
+		scope:actor = {
+			# not already at war with primary enemy
+			custom_description = {
+				text = join_war_interaction_already_warring_against_enemy
+				subject = scope:recipient
+				NOR = {
+					any_war_enemy = { this = scope:target.primary_attacker }
+					any_war_enemy = { this = scope:target.primary_defender }
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:target = {
+			hidden_effect = {
+				set_called_to = scope:actor
+			}
+			if = {
+				limit = {
+					is_attacker = scope:recipient
+				}
+				add_attacker = scope:actor
+			}
+			else = {
+				add_defender = scope:actor
+			}
+
+			### invalidate wars between vassals and the side you're joining
+
+			# create list of recipient-side combatants
+			if = {
+				limit = { any_war_attacker = { this = scope:recipient } }
+				every_war_attacker = {
+					limit = {
+						NOR = {
+							this = scope:recipient
+							this = scope:actor
+						}
+					}
+					add_to_list = join_war_interaction_combatants
+				}
+			}
+			else = {
+				every_war_defender = {
+					limit = {
+						NOR = {
+							this = scope:recipient
+							this = scope:actor
+						}
+					}
+					add_to_list = join_war_interaction_combatants
+				}
+			}
+		}
+
+		scope:actor = {
+
+			# check list against vassal war enemies
+			if = {
+				limit = {
+					any_vassal = {
+						any_in_list = {
+							list = join_war_interaction_combatants
+							is_at_war_with = prev # could be a temp saved scope? Feels wrong.
+						}
+					}
+				}
+				every_vassal = {
+					limit = {
+						any_in_list = {
+							list = join_war_interaction_combatants
+							is_at_war_with = prev # prev = vassal
+						}
+					}
+
+					### end wars
+					every_character_war = {
+						limit = {
+							# vassal is attacker, recipient-side character is defender
+							trigger_if = {
+								limit = { is_attacker = prev } # prev = vassal
+								any_in_list = {
+									list = join_war_interaction_combatants
+									is_defender_in_war = prev # prev = war
+									save_temporary_scope_as = invalid_combatant
+								}
+							}
+							# vassal is defender, recipient-side character is attacker
+							trigger_else_if = {
+								limit = { is_defender = prev } # prev = vassal
+								any_in_list = {
+									list = join_war_interaction_combatants
+									is_attacker_in_war = prev # prev = war
+									save_temporary_scope_as = invalid_combatant
+								}
+							}
+							# making the default behavior explicit if no other trigger_(else_)ifs are valid
+							trigger_else = {
+								always = yes
+							}
+						}
+
+						end_war = invalidated
+
+						# send message to stood-down vassals
+						prev = { # prev = vassal
+							send_interface_message = {
+								type = msg_war_ended_invalid
+								desc = join_war_interaction_vassal_war_invalidated_message
+								right_icon = scope:invalid_combatant
+								left_icon = this
+							}
+						}
+					}
+				}
+			}
+
+			stress_impact = {
+				craven = medium_stress_impact_gain
+				shy = minor_stress_impact_gain
+			}
+		}
+		scope:recipient = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				progress_towards_friend_effect = {
+					CHARACTER = scope:actor
+					OPINION = no
+				}
+			}
+			else = {
+				hidden_effect = { #To nudge friendship
+					if = {
+						limit = {
+							NOR = {
+								has_relation_friend = scope:actor
+								has_relation_potential_friend = scope:actor
+							}
+						}
+						set_relation_potential_friend = scope:actor
+					}
+				}
+			}
+		}
+	}
+
+	on_decline = {
+		scope:actor = {
+			trigger_event = char_interaction.0236
+		}
+	}
+
+    ai_accept = {
+        always = yes
+    }
+
+	ai_will_do = {
+		base = -1000
+    }
 }

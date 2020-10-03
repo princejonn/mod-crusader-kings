@@ -29,7 +29,9 @@ give_demigod_trait_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 remove_demigod_trait_interaction = {
@@ -61,7 +63,9 @@ remove_demigod_trait_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 give_elder_blood_trait_interaction = {
@@ -95,7 +99,9 @@ give_elder_blood_trait_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 give_beauty_trait_interaction = {
@@ -142,7 +148,9 @@ give_beauty_trait_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 give_intellect_trait_interaction = {
@@ -189,7 +197,9 @@ give_intellect_trait_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 give_physique_trait_interaction = {
@@ -236,7 +246,9 @@ give_physique_trait_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 give_fecund_trait_interaction = {
@@ -270,7 +282,9 @@ give_fecund_trait_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 give_blademaster_trait_interaction = {
@@ -314,7 +328,9 @@ give_blademaster_trait_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 give_hunter_trait_interaction = {
@@ -358,7 +374,9 @@ give_hunter_trait_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
 
 give_physician_trait_interaction = {
@@ -383,5 +401,7 @@ give_physician_trait_interaction = {
         }
     }
 
-    ai_will_do = 0
+	ai_will_do = {
+		base = -1000
+    }
 }
