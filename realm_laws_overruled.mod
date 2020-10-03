@@ -4,7 +4,7 @@ tags={
 	"Fixes"
 	"Warfare"
 }
-version="1.2"
+version="1.2.1"
 picture="thumbnail.png"
 supported_version="1.1.*"
 path="C:/Users/Jonn/Documents/Paradox Interactive/Crusader Kings III/mod/realm_laws_overruled"

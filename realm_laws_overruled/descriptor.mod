@@ -4,7 +4,7 @@ tags={
 	"Fixes"
 	"Warfare"
 }
-version="1.2"
+version="1.2.1"
 picture="thumbnail.png"
 supported_version="1.1.*"
 remote_file_id="2235206227"
