@@ -1,0 +1,62 @@
+house_guard = {
+	type = heavy_infantry
+	icon = house_guard
+
+	damage = 60
+	toughness = 40
+	pursuit = 0
+	screen = 30
+
+	terrain_bonus = {
+		forest = { damage = 5 toughness = 5 }
+		taiga = { damage = 5 toughness = 5 }
+		jungle = { damage = 5 toughness = 5 }
+	}
+
+	counters = {
+	    heavy_infantry = 1
+		pikemen = 1
+	}
+
+	buy_cost = { gold = 120 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 1 }
+
+	max_sub_regiments = 5
+
+	stack = 50
+	ai_quality = { value = 100 }
+}
+
+house_knight = {
+    type = heavy_cavalry
+    icon = house_knight
+
+	damage = 100
+	toughness = 50
+	pursuit = 30
+	screen = 10
+
+	terrain_bonus = {
+		plains = { damage = 20 }
+		drylands = { damage = 20 }
+		hills = { damage = -10 }
+		mountains = { damage = -50 }
+		desert_mountains = { damage = -50 }
+		wetlands = { damage = -50 toughness = -20 pursuit = -20 }
+	}
+
+	counters = {
+		archers = 1
+		skirmishers = 1
+	}
+
+	buy_cost = { gold = 120 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 1 }
+
+	max_sub_regiments = 5
+
+	stack = 50
+	ai_quality = { value = 100 }
+}

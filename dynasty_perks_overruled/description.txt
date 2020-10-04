@@ -1,0 +1,8 @@
+Improves all dynasty perks in some way or form.
+
+Major changes:
+[list]
+    [*] Improved all lifestyle experience bonuses to 20%
+    [*] Improved House Guard
+    [*] Added House Knights
+[/list]
