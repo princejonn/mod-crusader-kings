@@ -2,7 +2,7 @@ name="Character Customization"
 tags={
 	"Character Interactions"
 }
-version="1.8.0"
+version="1.8.1"
 picture="thumbnail.png"
 supported_version="1.1.*"
 path="C:/Users/Jonn/Documents/Paradox Interactive/Crusader Kings III/mod/character_customization"

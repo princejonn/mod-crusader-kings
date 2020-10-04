@@ -32,6 +32,9 @@
   abdicate_interaction:0 "Abdicate from Rule"
   abdicate_interaction_desc:0 "Deposes this ruler and gives titles to the designated heirs."
 
+  make_very_ill:0 "Make very ill"
+  make_very_ill_desc:0 "Speeds up the abdication process a bit..."
+
   make_bisexual_interaction:0 "Make Bisexual"
   make_bisexual_interaction_desc:0 "Makes the character bisexual. Spread the love!"
 

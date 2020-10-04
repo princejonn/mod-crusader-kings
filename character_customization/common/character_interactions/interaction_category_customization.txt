@@ -238,17 +238,57 @@ abdicate_interaction = {
         scope:recipient = scope:actor
         scope:recipient = {
             is_alive = yes
+            NOT = { has_character_flag = abdicated_from_rule }
         }
     }
 
     on_accept = {
         scope:recipient = {
             depose = yes
+            add_character_flag = abdicated_from_rule
         }
     }
 
 	ai_will_do = {
 		base = -1000
+    }
+}
+
+make_very_ill = {
+    category = interaction_category_customization
+    desc = make_very_ill_desc
+
+    auto_accept = yes
+    common_interaction = yes
+    ignores_pending_interaction_block = yes
+    use_diplomatic_range = no
+
+    is_shown = {
+        scope:recipient = {
+            is_alive = yes
+            has_character_flag = abdicated_from_rule
+            NOR = {
+                has_trait = cancer
+                has_trait = consumption
+                has_trait = ill
+                has_trait = pneumonic
+                has_trait = wounded_1
+            }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            add_trait = cancer
+            add_trait = consumption
+            add_trait = ill
+            add_trait = pneumonic
+            add_trait = wounded_1
+        }
+    }
+
+    ai_will_do = {
+        base = -1000
     }
 }
 
